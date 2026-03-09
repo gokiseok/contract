@@ -252,10 +252,10 @@
 
   @media print {
     @page { size: A4; margin: 8mm 10mm; }
-    body { background: white; padding: 0; }
-    .paper { box-shadow: none; max-width: 100%; }
+    html, body { height: 100%; background: white; padding: 0; margin: 0; }
+    .paper { box-shadow: none; max-width: 100%; height: 100vh; display: flex; flex-direction: column; }
     .paper::before { display: none; }
-    .paper-inner { padding: 14px 22px 14px; }
+    .paper-inner { padding: 14px 22px 14px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; }
     .actions, .sig-clear, .disclaimer { display: none !important; }
     .doc-title { font-size: 20px; }
     .doc-subtitle { font-size: 9.5px; }
@@ -275,7 +275,7 @@
     .sign-date { font-size: 10.5px; margin-bottom: 8px; line-height: 1.6; }
     .sign-date-inputs input { font-size: 12px !important; }
     .sign-date-inputs .date-unit { font-size: 12px !important; }
-    .signers { gap: 10px; margin-top: 4px; }
+    .signers { gap: 10px; margin-top: 4px; flex-grow: 1; align-content: end; }
     .signer-header { padding: 5px; font-size: 10.5px; }
     .signer-fields { padding: 5px 8px 3px; }
     .signer-field-row { font-size: 10.5px; padding: 1px 0; }
@@ -288,6 +288,7 @@
     .field, .sfv { border-bottom-color: #999 !important; }
     .field-textarea { border-color: #999 !important; }
     .note-footer { font-size: 9px; margin-top: 6px; }
+    * { page-break-inside: avoid; }
   }
 </style>
 </head>
